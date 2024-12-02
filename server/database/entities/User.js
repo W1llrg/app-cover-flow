@@ -1,4 +1,4 @@
-import {EntitySchema} from 'typeorm';
+import { EntitySchema } from "typeorm";
 
 const User = new EntitySchema({
 	name: "User",
@@ -7,26 +7,27 @@ const User = new EntitySchema({
 		id: {
 			type: "int",
 			primary: true,
-			generated: true
+			generated: true,
 		},
 		username: {
 			type: "varchar",
-			unique: true
+			unique: true,
 		},
 		mail: {
-			type: "varchar"
+			type: "varchar",
+			unique: true,
 		},
 		password: {
-			type: "varchar"
-		}
+			type: "varchar",
+		},
 	},
 	relations: {
 		playlists: {
 			type: "one-to-many",
 			target: "Playlist",
-			inverseSide: "user"
-		}
-	}
+			inverseSide: "user",
+		},
+	},
 });
 
 export default User;

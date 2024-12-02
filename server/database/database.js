@@ -12,20 +12,20 @@ const AppDataSource = new DataSource({
 	logging: false,
 });
 
-const initialize = async () =>
-{
+const initialize = async () => {
 	if (AppDataSource.isInitialized) {
-		console.log('DB: Already initialized')
-		return
+		console.log("DB: Already initialized");
+		return;
 	}
 
 	try {
-		await AppDataSource.initialize()
+		await AppDataSource.initialize();
+		console.log("DB: Successfully initialized");
 	} catch (error) {
-		console.error('DB: Failed to initialized database')
-		throw error
+		console.error("DB: Failed to initialized database");
+		throw error;
 	}
-}
+};
 
 console.log("file ran");
 
