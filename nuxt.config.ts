@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	compatibilityDate: '2024-04-03',
-	devtools: {enabled: true},
-	nitro: {
-        plugins: ['~/server/plugins/checkAdminOnStartup.js'],
+    compatibilityDate: '2024-04-03',
+    devtools: { enabled: true },
+    nitro: {
+        plugins: ['~/server/plugins/initTypeOrmOnStartup.js', '~/server/plugins/checkAdminOnStartup.js'],
     },
 })

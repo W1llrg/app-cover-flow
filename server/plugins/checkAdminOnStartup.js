@@ -1,6 +1,6 @@
 import { defineNitroPlugin } from 'nitropack/dist/runtime/plugin';
 import bcrypt from 'bcrypt';
-import { AppDataSource, initialize } from '../database/database';
+import { AppDataSource } from '../database/database';
 import User from '../database/entities/User';
 
 const saltRounds = 10;
@@ -12,7 +12,10 @@ export default defineNitroPlugin(async () => {
     console.log('DB: Checking for admin user');
 
     try {
-        await initialize(); // Assurez-vous que la base de données est initialisée
+        // Attendre que la base de données soit initialisée
+        if (!AppDataSource.isInitialized) {
+            await AppDataSource.initialize();
+        }
 
         const userRepository = AppDataSource.getRepository(User);
         const adminUser = await userRepository.findOne({ where: { mail: adminEmail } });
