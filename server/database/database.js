@@ -1,12 +1,13 @@
-import { DataSource } from "typeorm";
-import User from "./entities/User";
-import Playlist from "./entities/Playlist";
-import Song from "./entities/Song";
+import {DataSource} from "typeorm"
+import User from "./entities/User"
+import Playlist from "./entities/Playlist"
+import Song from "./entities/Song"
+import Artist from "~/server/database/entities/Artist.js";
 
 const AppDataSource = new DataSource({
 	type: "sqlite",
 	database: "./db.sqlite",
-	entities: [User, Playlist, Song],
+	entities: [User, Playlist, Song, Artist],
 	synchronize: true,
 	logging: false,
 });
