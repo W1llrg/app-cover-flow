@@ -12,7 +12,7 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "jsonwebtoken": "^9.0.2",
-    "nuxt": "^3.13.2",
+    "nuxt": "^3.14.1592",
     "pg": "^8.13.0",
     "reflect-metadata": "^0.2.2",
     "sqlite3": "^5.1.7",
