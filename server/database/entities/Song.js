@@ -21,6 +21,14 @@ const Song = new EntitySchema({
 		path: {
 			type: "varchar"
 		}
+	},
+	relations: {
+		artist: {
+			type: "many-to-one",
+			target: "Artist",
+			joinTable: true,
+			inverseSide: "songs"
+		}
 	}
 });
 
