@@ -12,7 +12,7 @@ export default defineNitroPlugin(async () => {
     console.log('DB: Checking for admin user');
 
     try {
-        await initialize(); // Assurez-vous que la base de données est initialisée
+        await initialize();
 
         const userRepository = AppDataSource.getRepository(User);
         const adminUser = await userRepository.findOne({ where: { mail: adminEmail } });
@@ -33,7 +33,7 @@ export default defineNitroPlugin(async () => {
             console.log('DB: Admin user already exists');
         }
     } catch (error) {
-        console.error('DB: Error checking/creating admin user:', error);
+        console.error('DB: Error during init process:', error);
         throw error;
     }
 });
