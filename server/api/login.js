@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import { AppDataSource } from "../database/database";
 import User from "../database/entities/User";
 
-const SECRET_KEY = process.env.SECRET_KEY || "votre_secret_key";
+const SECRET_KEY = process.env.SECRET_KEY || "super_secret_key";
 
 export default defineEventHandler(async (event) => {
 	try {
