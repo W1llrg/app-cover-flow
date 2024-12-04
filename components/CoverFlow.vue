@@ -25,14 +25,19 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import axios from 'axios';
 
-const covers = [
-    { title: 'Album 1', artist: 'Artist 1', image: '/placeholder.svg?height=300&width=300' },
-    { title: 'Album 2', artist: 'Artist 2', image: '/placeholder.svg?height=300&width=300' },
-    { title: 'Album 3', artist: 'Artist 3', image: '/placeholder.svg?height=300&width=300' },
-    { title: 'Album 4', artist: 'Artist 4', image: '/placeholder.svg?height=300&width=300' },
-    { title: 'Album 5', artist: 'Artist 5', image: '/placeholder.svg?height=300&width=300' },
-]
+let coversData;
+await axios.get('http://localhost:3000/api/song/getAll').then((res) => {
+    coversData = res.data.songs;
+    console.log(coversData);
+});
+
+let covers = [];
+for (let cover of coversData) {
+    const coverEntry = {title: cover.name, artist: cover.artist, image: cover.cover};
+    covers.push(coverEntry);
+}
 
 const currentIndex = ref(0)
 const coverflowRef = ref(null)
