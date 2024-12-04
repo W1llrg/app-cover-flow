@@ -130,7 +130,6 @@ onMounted(() => {
     left: 0;
     right: 0;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
     transform: scaleY(-1);
     opacity: 0.5;
     pointer-events: none;
@@ -146,6 +145,7 @@ button {
     border: none;
     padding: 10px 20px;
     margin: 0 10px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
