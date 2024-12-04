@@ -2,9 +2,9 @@ import {AppDataSource} from "~/server/database/database";
 import Playlist from "~/server/database/entities/Playlist";
 import {createError, readBody, sendError} from "h3";
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
 	try {
-		const songId = getRouteParam(event, "songId");
+		const songId = getRouterParam(event, "songId");
 		const body = await readBody(event);
 		const playlistId = body.playlistId;
 

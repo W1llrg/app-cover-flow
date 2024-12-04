@@ -5,7 +5,7 @@ import {createError, readBody, sendError} from "h3";
 
 export default defineEventHandler(async (event) => {
 	try {
-		const songId = getRouteParam(event, "songId");
+		const songId = getRouterParam(event, "songId");
 
 		const body = await readBody(event);
 		const playlistId = body.playlistId;
